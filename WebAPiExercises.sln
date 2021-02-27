@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPiExercises", "WebAPiExercises.csproj", "{46A28E6D-E4E7-42CE-8858-5601E90BD07F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "..\Entities\Entities.csproj", "{69E8AA1C-F798-43D7-98D5-D2A7E5289A7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "..\DataAccess\DataAccess.csproj", "{2B32B78B-228A-4BC0-91CB-2056B297E45C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{46A28E6D-E4E7-42CE-8858-5601E90BD07F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{46A28E6D-E4E7-42CE-8858-5601E90BD07F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{46A28E6D-E4E7-42CE-8858-5601E90BD07F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{46A28E6D-E4E7-42CE-8858-5601E90BD07F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69E8AA1C-F798-43D7-98D5-D2A7E5289A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69E8AA1C-F798-43D7-98D5-D2A7E5289A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69E8AA1C-F798-43D7-98D5-D2A7E5289A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69E8AA1C-F798-43D7-98D5-D2A7E5289A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B32B78B-228A-4BC0-91CB-2056B297E45C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B32B78B-228A-4BC0-91CB-2056B297E45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B32B78B-228A-4BC0-91CB-2056B297E45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B32B78B-228A-4BC0-91CB-2056B297E45C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
