@@ -18,37 +18,56 @@ namespace WebAPI.Controllers
         public TeamController(IPlayersService playersService)
         {
             _IPlayerService = playersService;
-
         }
 
         [HttpPost]
-        public Player Add([FromBody]Player player)
+        [Route("[action]")]
+        public async Task<IActionResult> AddPlayer([FromBody] Player player)
         {
-            return _IPlayerService.AddPlayer(player);
+            var createdPlayer = await _IPlayerService.AddPlayer(player);
+            return CreatedAtAction("FindPlayer", new { id = createdPlayer.ID }, createdPlayer); //201 + createdPlayer
         }
 
         [HttpGet]
-        public List<Player> GetAll()
+        [Route("[action]")]
+        public async Task<IActionResult> GetAllPlayers()
         {
-            return _IPlayerService.GetPlayers();
+            return Ok(await _IPlayerService.GetPlayers());
         }
 
-        [HttpGet("{id}")]
-        public Player Find(int id)
+        [HttpGet]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> FindPlayer(int id)
         {
-            return _IPlayerService.FindPlayer(id);
+            var player = await _IPlayerService.FindPlayer(id);
+            if (player != null)
+            {
+                return Ok(await _IPlayerService.FindPlayer(id)); //200+ player
+            }
+            return NotFound(); //404
         }
 
         [HttpPut]
-        public Player Update([FromBody]Player player)
+        [Route("[action]")]
+        public async Task<IActionResult> UpdatePlayer([FromBody] Player player)
         {
-            return _IPlayerService.UpdatePlayer(player);
+            if (await _IPlayerService.FindPlayer(player.ID) != null)
+            {
+                return Ok(await _IPlayerService.UpdatePlayer(player)); //200 ok
+            }
+            return NotFound();
         }
 
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> DeletePlayer(int id)
         {
-            _IPlayerService.DeletePlayer(id);
+            if (await _IPlayerService.FindPlayer(id) != null)
+            {
+                await _IPlayerService.DeletePlayer(id);
+                return Ok();
+            }
+            return NotFound();
         }
     }
 }

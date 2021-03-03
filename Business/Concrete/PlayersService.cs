@@ -4,6 +4,7 @@ using Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -15,29 +16,29 @@ namespace Business.Concrete
             _playersDal = playersDal;
         }
 
-        public Player AddPlayer(Player player)
+        public async Task<Player> AddPlayer(Player player)
         {
-            return _playersDal.AddPlayer(player);
+            return await _playersDal.AddPlayer(player);
         }
 
-        public void DeletePlayer(int id)
+        public async Task DeletePlayer(int id)
         {
-            _playersDal.DeletePlayer(id);
+            await _playersDal.DeletePlayer(id);
         }
 
-        public Player FindPlayer(int id)
+        public async Task<Player> FindPlayer(int id)
         {
-            return _playersDal.FindPlayer(id);
+            return await _playersDal.FindPlayer(id);
         }
 
-        public List<Player> GetPlayers()
+        public async Task<List<Player>> GetPlayers()
         {
-            return _playersDal.GetPlayers();
+            return await _playersDal.GetPlayers();
         }
 
-        public Player UpdatePlayer(Player player)
+        public async Task<Player> UpdatePlayer(Player player)
         {
-            return _playersDal.UpdatePlayer(player);
+            return await _playersDal.UpdatePlayer(player);
         }
     }
 }

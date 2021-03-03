@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
     public interface IPlayersService
     {
-        Player AddPlayer(Player player);
-        List<Player> GetPlayers();
-        Player FindPlayer(int id);
-        Player UpdatePlayer(Player player);
-        void DeletePlayer(int id);
+        Task<Player> AddPlayer(Player player);
+        Task<List<Player>> GetPlayers();
+        Task<Player> FindPlayer(int id);
+        Task<Player> UpdatePlayer(Player player);
+        Task DeletePlayer(int id);
     }
 }
