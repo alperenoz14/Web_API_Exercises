@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> AddPlayer([FromBody] Player player)
         {
             var createdPlayer = await _IPlayerService.AddPlayer(player);
-            return CreatedAtAction("FindPlayer", new { id = createdPlayer.ID }, createdPlayer); //201 + createdPlayer
+            return CreatedAtAction("FindPlayer", new { id = createdPlayer.ID }, createdPlayer); 
         }
 
         [HttpGet]
@@ -42,7 +42,7 @@ namespace WebAPI.Controllers
             var player = await _IPlayerService.FindPlayer(id);
             if (player != null)
             {
-                return Ok(await _IPlayerService.FindPlayer(id)); //200+ player
+                return Ok(await _IPlayerService.FindPlayer(id)); 
             }
             return NotFound(); //404
         }
@@ -53,7 +53,7 @@ namespace WebAPI.Controllers
         {
             if (await _IPlayerService.FindPlayer(player.ID) != null)
             {
-                return Ok(await _IPlayerService.UpdatePlayer(player)); //200 ok
+                return Ok(await _IPlayerService.UpdatePlayer(player)); 
             }
             return NotFound();
         }
